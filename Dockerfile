@@ -1,5 +1,6 @@
 FROM blaiseio/acelink
 
+# GUI entrypoint'i iptal et
 ENTRYPOINT []
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -17,4 +18,4 @@ COPY server.js .
 EXPOSE 3000
 EXPOSE 6878
 
-CMD sh -c "acestreamengine start --client-console & node server.js"
+CMD sh -c "acelink start --client-console & node server.js"
