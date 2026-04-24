@@ -1,13 +1,10 @@
 FROM blaiseio/acelink
 
-# GUI entrypoint'i iptal et
-ENTRYPOINT []
-
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 
+# Sadece HTTP wrapper için node ekliyoruz
 RUN apt-get update && apt-get install -y \
-    tzdata \
     nodejs \
     npm \
     && rm -rf /var/lib/apt/lists/*
@@ -15,7 +12,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 COPY server.js .
 
+# HTTP port (Render)
 EXPOSE 3000
-EXPOSE 6878
 
-CMD sh -c "acelink start --client-console & node server.js"
+# CMD sadece wrapper'ı başlatır, ENTRYPOINT kalır
+CMD ["node", "server.js"]
