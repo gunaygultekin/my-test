@@ -1,5 +1,7 @@
-ENV DEBIAN_FRONTEND=noninteractive
 FROM blaiseio/acelink
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
 
 # Node.js ekle (HTTP wrapper için)
 RUN apt-get update && apt-get install -y \
