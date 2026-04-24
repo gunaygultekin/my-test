@@ -3,7 +3,6 @@ FROM blaiseio/acelink
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 
-# Node.js ekle (HTTP wrapper için)
 RUN apt-get update && apt-get install -y \
     tzdata \
     nodejs \
@@ -13,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 COPY server.js .
 
-EXPOSE 6878
 EXPOSE 3000
+EXPOSE 6878
 
-CMD sh -c "acelink & node server.js"
+CMD sh -c "acestreamengine start --client-console & node server.js"
