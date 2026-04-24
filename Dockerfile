@@ -1,5 +1,7 @@
 FROM blaiseio/acelink
 
+ENTRYPOINT []
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 
